@@ -1,0 +1,36 @@
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-app {
+    text-align: center;
+    font-size: 100px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content img {
+    width: 400px;
+    opacity: 0.8;
+}
+
+.video h3 {
+    color: #fff;
+}
+
+.video h5 {
+    color: #fff;
+    margin-top: 20px;
+}
+
+.video a:hover {
+    text-decoration: none;
+}
+
+.video img {
+    width: 100px !important;
+}
