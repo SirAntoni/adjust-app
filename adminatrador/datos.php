@@ -1,0 +1,46 @@
+<?php
+	header('Content-type:application/xls');
+	header('Content-Disposition: attachment; filename=usuarios.xls');
+?>
+
+<table border="1">
+	<thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Telefono</th>
+            <th>Ciudad</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>001</td>
+        <td>Antony</td>
+        <td>Culqui</td>
+        <td>Carranza</td>
+        <td>Lima</td>
+    </tr>	
+    <tr>
+        <td>001</td>
+        <td>Antony</td>
+        <td>Culqui</td>
+        <td>Carranza</td>
+        <td>Lima</td>
+    </tr>	
+    <tr>
+        <td>001</td>
+        <td>Antony</td>
+        <td>Culqui</td>
+        <td>Carranza</td>
+        <td>Lima</td>
+    </tr>	
+    <tr>
+        <td>001</td>
+        <td>Antony</td>
+        <td>Culqui</td>
+        <td>Carranza</td>
+        <td>Lima</td>
+    </tr>	
+    </tbody>
+</table>

@@ -19,7 +19,7 @@ const login = ()=>{
 
         const data = $(this).serialize();
         $.ajax({
-            url:'admin/controller/userController.php',
+            url:'administrador/controller/userController.php',
             method:'POST',
             data:data,
             beforeSend: function() {
@@ -63,7 +63,7 @@ const register = ()=> {
         const data = $(this).serialize();
         console.log(data);
         $.ajax({
-            url:'admin/controller/userController.php',
+            url:'administrador/controller/userController.php',
             method:'POST',
             data:data,
             beforeSend: function() {
@@ -108,7 +108,7 @@ const get_marcas = ()=>{
 
     $.ajax({
 
-        url:'admin/controller/galeriaController',
+        url:'administrador/controller/galeriaController',
         method:'GET',
         data:'option=get_marcas',
         success: function(response){
@@ -136,7 +136,7 @@ const get_tipos = ()=>{
 
         $.ajax({
 
-            url:'admin/controller/galeriaController',
+            url:'administrador/controller/galeriaController',
             method:'GET',
             data:'option=get_tipos&marca_id=' + marca_id,
             success: function(response){
@@ -167,7 +167,7 @@ const get_modelos = ()=>{
         const text_default = '<option value="">Seleccione una opción</option>';
         $.ajax({
 
-            url:'admin/controller/galeriaController',
+            url:'administrador/controller/galeriaController',
             method:'GET',
             data:'option=get_modelos&marca_id=' + marca_id + '&tipo_id=' + tipo_id,
             success: function(response){
@@ -197,7 +197,7 @@ const get_anios = ()=>{
         const model_id = $('#modelos').val();
         $.ajax({
 
-            url:'admin/controller/galeriaController',
+            url:'administrador/controller/galeriaController',
             method:'GET',
             data:'option=get_anios&marca_id=' + marca_id + '&tipo_id=' + tipo_id + '&model_id=' + model_id,
             success: function(response){
@@ -223,7 +223,7 @@ const buscar = ()=> {
         e.preventDefault();
         const data = $(this).serialize();
         $.ajax({
-            url:'admin/controller/galeriaController.php',
+            url:'administrador/controller/galeriaController.php',
             method:"GET",
             data:data,
             success: function(response){
@@ -241,7 +241,7 @@ const get_categorias = ()=>{
 
     if(tipo == 1){
         $.ajax({
-            url:'admin/controller/galeriaController.php',
+            url:'administrador/controller/galeriaController.php',
             method:'GET',
             data: 'option=get_categorias_auto&id=' + id,
             success: function(response){
@@ -252,7 +252,7 @@ const get_categorias = ()=>{
                 const categoria_inicial = data[0]['id'];
     
                 $.ajax({
-                    url:'admin/controller/galeriaController.php',
+                    url:'administrador/controller/galeriaController.php',
                     method:'GET',
                     data: 'option=get_categorias_auto_accesorios&mtmac_id=' + categoria_inicial,
                     success: function(response){
@@ -292,7 +292,7 @@ const get_categorias = ()=>{
 function get_accesorios (id){
     
     $.ajax({
-        url:'admin/controller/galeriaController.php',
+        url:'administrador/controller/galeriaController.php',
         method:'GET',
         data: 'option=get_categorias_auto_accesorios&mtmac_id=' + id,
         success: function(response){
@@ -323,7 +323,7 @@ function get_accesorio_detalle(id){
     
 
     $.ajax({
-        url:'admin/controller/galeriaController.php',
+        url:'administrador/controller/galeriaController.php',
         method:'GET',
         data: 'option=get_accesorio_detalle&mtmaca_id=' + id,
         success: function(response){
@@ -389,7 +389,7 @@ var guardar_configuracion = ()=> {
             src_config = $("#src_config").val();
 
             $.ajax({
-                url:"admin/controller/galeriaController.php",
+                url:"administrador/controller/galeriaController.php",
                 data:"option=guardar_configuracion&id=" + id + "&src_config="+src_config,
                 method:"GET",
                 success: function(response){
