@@ -168,7 +168,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
     </script>
-    <script src="admin/assets/js/notiflix.js"></script>
+    <script src="administrador/assets/js/notiflix.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script>
@@ -179,7 +179,7 @@ session_start();
         if ($("#tipo_config").val() == 1) {
 
             $.ajax({
-                url: 'admin/controller/galeriaController.php',
+                url: 'administrador/controller/galeriaController.php',
                 method: 'GET',
                 data: 'option=get_auto&id=' + id,
                 success: function(response) {
@@ -205,7 +205,7 @@ session_start();
             get_accesorio_detalle(id);
 
             $.ajax({
-                url: "admin/controller/galeriaController.php",
+                url: "administrador/controller/galeriaController.php",
                 method: "GET",
                 data: "option=get_id_auto&id=" + id,
                 success: function(response) {
@@ -213,7 +213,7 @@ session_start();
                     const id = response;
 
                     $.ajax({
-                        url: 'admin/controller/galeriaController.php',
+                        url: 'administrador/controller/galeriaController.php',
                         method: 'GET',
                         data: 'option=get_auto&id=' + id,
                         success: function(response) {
@@ -223,7 +223,7 @@ session_start();
                     })
 
                     $.ajax({
-                        url: 'admin/controller/galeriaController.php',
+                        url: 'administrador/controller/galeriaController.php',
                         method: 'GET',
                         data: 'option=get_categorias_auto&id=' + id,
                         success: function(response) {
@@ -234,7 +234,7 @@ session_start();
                             const categoria_inicial = data[0]['id'];
 
                             $.ajax({
-                                url: 'admin/controller/galeriaController.php',
+                                url: 'administrador/controller/galeriaController.php',
                                 method: 'GET',
                                 data: 'option=get_categorias_auto_accesorios&mtmac_id=' +
                                     categoria_inicial,
