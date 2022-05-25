@@ -9,7 +9,7 @@ var cargar_configuraciones = () =>{
     let user_id = $("#user_id").val();
 
     $.ajax({
-        url:'admin/controller/miGarageController.php',
+        url:'administrador/controller/miGarageController.php',
         method: 'GET',
         data:'option=get_garage&user_id=' + user_id,
         success: function(response){
