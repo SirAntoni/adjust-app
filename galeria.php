@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <style>
     body {
         background: url(assets/images/bg/bg-video.jpg);
@@ -20,10 +21,29 @@
         margin: 0;
         height: 100vh;
     }
+
+    #home{
+        width: 55px;
+        height: 55px;
+        background:#2C3E50;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #home a{
+        color: #fff;
+    }
     </style>
 </head>
 
 <body>
+
+
+    <div id="home" class="d-flex align-items-center justify-content-center">
+       <a href="index"> <i class='bx bx-home-alt bx-md'></i></a>
+    </div>
 
     <div class="container h-100 d-flex align-items-center justify-content-center">
 

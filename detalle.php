@@ -87,7 +87,7 @@ session_start();
     <?php $id = $_GET['id'];   } ?>
     <?php if(isset($_GET['config_id'])){ ?>
     <input type="hidden" id="tipo_config" name="tipo_config" value="2">
-    
+
 
     <?php $id = $_GET['config_id']; } ?>
 
@@ -149,8 +149,15 @@ session_start();
             <?php if(isset($_SESSION['email'])){ ?>
             <div class="col-md-12 text-center py-4">
                 <button id="guardar_configuracion" class="btn btn-success">Guardar configuración</button>
+                <a href="index" class="btn btn-danger">volver</a>
             </div>
-            <?php } ?>
+
+            <?php }else{?>
+            <div class="col-md-12 text-center py-4">
+                <a href="index" class="btn btn-danger">volver</a>
+            </div>
+            <?php  } ?>
+
         </div>
 
 

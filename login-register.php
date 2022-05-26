@@ -19,6 +19,7 @@ if(isset($_SESSION['email'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <style>
     body {
         background: url(assets/images/bg/bg-video.jpg);
@@ -27,14 +28,32 @@ if(isset($_SESSION['email'])){
         margin: 0;
         height: 100vh;
     }
+    #home{
+        width: 55px;
+        height: 55px;
+        background:#2C3E50;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #home a{
+        color: #fff;
+    }
     </style>
-  
+
 </head>
+
 
 <body class="d-flex align-items-center justify-content-center">
 
+<div id="home" class="d-flex align-items-center justify-content-center">
+    <a href="index"> <i class='bx bx-home-alt bx-md'></i></a>
+
+</div>
     <section class="forms-section">
-        
+
         <div class="forms">
             <div class="form-wrapper is-active">
                 <button type="button" class="switcher switcher-login">
@@ -75,7 +94,7 @@ if(isset($_SESSION['email'])){
                         </div>
                         <div class="input-block">
                             <label for="last_name">Apellidos</label>
-                            <input  type="text" name="last_name" required>
+                            <input type="text" name="last_name" required>
                         </div>
                         <div class="input-block">
                             <label for="password">Password</label>
@@ -87,11 +106,11 @@ if(isset($_SESSION['email'])){
             </div>
         </div>
     </section>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="administrador/assets/js/notiflix.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-    
     const switchers = [...document.querySelectorAll('.switcher')]
 
     switchers.forEach(item => {

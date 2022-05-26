@@ -236,6 +236,7 @@ class Users extends Conectar
                         $_SESSION['codigo']              = $data['codigo'];
                         $_SESSION['name']     = $data['name'];
                         $_SESSION['last_name']     = $data['last_name'];
+                        $_SESSION['imagen']     = $data['imagen'];
                         $_SESSION['rol']     = $data['rol'];
                         
                         $response = [

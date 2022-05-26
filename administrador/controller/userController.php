@@ -46,7 +46,7 @@ switch($option){
         $insert = $users->insert_user($email,$name,$last_name,$password);
     break;
     case 'update':
-        $update = $users->update_user($id,$user,$password,$name,$last_name,$rol,$permissions);
+        $update = $users->update_user($id,$name,$last_name,$foto);
     break;
     case 'delete':
         $delete = $users->delete_user($id);

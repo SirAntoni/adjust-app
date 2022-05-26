@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require "../config/conexion.php";
 require "../model/miGarageModel.php";
 
@@ -22,6 +22,10 @@ switch ($option){
     case 'get_garage':
         $configuraciones = $garage->get_garage($user_id);
         echo json_encode($configuraciones);
+    break;
+    case 'get_user_id':
+        $usuario = $garage->get_user_id($_SESSION['id']);
+        echo json_encode($usuario);
     break;
     default:
         header('Location:../../home');
