@@ -25,6 +25,12 @@ if(!isset($_GET['start']) && $_GET['start'] !=true){
         margin: 0;
         height: 100vh;
     }
+
+    @media (max-width: 600px) {
+        .opcion-home {
+            width: 300px !important;
+        }
+    }
     </style>
 </head>
 
@@ -33,13 +39,13 @@ if(!isset($_GET['start']) && $_GET['start'] !=true){
     <div class="container">
         <div class="row text-center content">
             <div class="col-md-6">
-                <a href="galeria"><img src="assets/images/galeria.png" alt=""></a>
+                <a href="galeria"><img src="assets/images/galeria.png" class="opcion-home" alt=""></a>
             </div>
             <div class="col-md-6">
-                <a href="videos"> <img src="assets/images/videos.png" alt=""></a>
+                <a href="videos"> <img src="assets/images/videos.png" class="opcion-home" alt=""></a>
             </div>
             <div class="col-md-6">
-                <a href="login-register"><img src="assets/images/mi-garage.png" alt=""></a>
+                <a href="login-register"><img src="assets/images/mi-garage.png" class="opcion-home" alt=""></a>
             </div>
         </div>
     </div>
