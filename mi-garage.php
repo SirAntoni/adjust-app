@@ -29,6 +29,11 @@ if(!isset($_SESSION['email'])){
         margin: 0;
         height: 100vh;
     }
+
+    .config-garage{
+        border: 4px #000 solid;
+    }
+
     </style>
 
 </head>
@@ -40,9 +45,13 @@ if(!isset($_SESSION['email'])){
         <div id="user_navbar">
             <div class="row">
                 <div class="col-md-6 p-4 d-flex align-items-center  text-white">
-                    <img src="assets/images/users/<?php echo (empty($_SESSION['imagen'])) ? 'user.svg':$_SESSION['imagen']; ?>" alt="<?php echo $_SESSION['name'] . " " . $_SESSION['last_name']; ?>" width="60px" class="mr-3">
-                    <h6 id="nombre_usuario" class="mr-2"></h6><a href="#" data-toggle="modal"
-                            data-target="#edit-user" style="color:#fff;margin-top:-5px;"> <i class='bx bx-edit bx-xs'></i></a>
+                    <div id="foto-perfil">
+                        
+                    </div>
+                    <h6 id="nombre_usuario" class="mr-2"></h6><a href="#" data-toggle="modal" data-target="#edit-user"
+                        style="color:#fff;margin-top:-5px;"> <i class='bx bx-edit bx-xs'></i></a><a href="#"
+                        data-toggle="modal" data-target="#edit-password" style="color:#fff;margin-top:-5px;"> <i
+                            class='bx bx-cog bx-xs'></i></a>
                 </div>
 
                 <!-- Modal -->
@@ -57,23 +66,63 @@ if(!isset($_SESSION['email'])){
                                 </button>
                             </div>
                             <form id="formEditUser">
+                                <input type="hidden" name="option" value="update">
                                 <div class="modal-body">
 
 
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        <input type="text" id="edit_user_name" name="name" class="form-control" placeholder="Nombre">
+                                        <input type="text" id="edit_user_name" name="name" class="form-control"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Apellido</label>
-                                        <input type="text" id="edit_user_last_name" name="last_name" class="form-control" placeholder="Apellido">
+                                        <input type="text" id="edit_user_last_name" name="last_name"
+                                            class="form-control" placeholder="Apellido">
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Foto</label>
-                                        <input type="hidden" id="edit_user_img_temporal" name="imagen_temporal">
-                                        <input type="file" class="form-control" name="edit_user_img">
+                                        <input type="hidden" id="edit_user_img_temporal" name="archivo">
+                                        <input type="file" class="form-control" name="imagen">
                                     </div>
 
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Password -->
+                <div class="modal fade" id="edit-password" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="edit-userLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="edit-userLabel">Editar Password</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form id="formEditPassword">
+                            <input type="hidden" name="option" value="reset">
+                                <div class="modal-body">
+
+
+                                    <div class="form-group">
+                                        <label for="password">Contraseña</label>
+                                        <input type="text" id="password" name="password" class="form-control"
+                                            placeholder="Contraseña">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirmar contraseña</label>
+                                        <input type="text" id="confirm_password" name="confirm_password"
+                                            class="form-control" placeholder="Confirmar contraseña">
+                                    </div>
 
                                 </div>
                                 <div class="modal-footer">
@@ -126,13 +175,15 @@ if(!isset($_SESSION['email'])){
         </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
     </script>
+    <script src="administrador/assets/js/notiflix.js"></script>
     <script src="assets/js/garage.js"></script>
 </body>
 

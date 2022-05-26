@@ -2,6 +2,7 @@ $(function(){
     cargar_configuraciones();
     edit_user();
     get_user_id();
+    reset_password();
 })
 
 
@@ -13,6 +14,8 @@ const get_user_id = ()=>{
         data: 'option=get_user_id',
         success: function (response){
             const data = JSON.parse(response);
+            console.log(data);
+            $("#foto-perfil").html(`<img src="assets/images/users/${data.imagen}" alt="${data.name} ${data.last_name}" width="60px" class="rounded-circle mr-3">`)
             $("#edit_user_name").val(data.name);
             $("#nombre_usuario").html(data.name + ' ' + data.last_name);
             $("#codigo").html(data.codigo);
@@ -28,10 +31,119 @@ var edit_user = ()=>{
 
     $("#formEditUser").submit(function(e){
         e.preventDefault();
-        const formData = new FormData($('#formAgregarCartel')[0]);
+        const formData = new FormData($('#formEditUser')[0]);
+        
+        
         $.ajax({
-            
+            url:"administrador/controller/userController.php",
+            method:"POST",
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+                Notiflix.Loading.standard('Editando usuario...');
+            },
+            complete: function() {
+                Notiflix.Loading.remove();
+            },
+            success: function(resp){
+                const response = JSON.parse(resp);
+                if (response.status == "error") {
+
+                    Notiflix.Report.failure(
+                        'Error',
+                        response.message,
+                        'Ok',
+                        );
+
+                }else if(response.status == "success"){
+                   
+                    Notiflix.Report.success(
+                        'Success',
+                        response.message,
+                        'Ok',
+                        ()=>{
+                            get_user_id();
+                            $("#edit-user").modal('hide');
+                        }
+                        );
+
+                }else{
+                    Notiflix.Report.failure(
+                        'Error',
+                        'Hubo un error en el servidor. Contactate con el administrador del sistema',
+                        'Ok',
+                        );
+                } 
+            }
         })
+
+
+    })
+
+}
+
+var reset_password = ()=>{
+
+    $("#formEditPassword").submit(function(e){
+        e.preventDefault();
+        const data = $(this).serialize();
+        const password = $("#password").val();
+        const confirm_password = $("#confirm_password").val();
+
+        if(password === confirm_password){
+            $.ajax({
+                url:"administrador/controller/userController.php",
+                method:"POST",
+                data: data,
+                beforeSend: function() {
+                    Notiflix.Loading.standard('Editando usuario...');
+                },
+                success: function(resp){
+                    Notiflix.Loading.remove();
+                    const response = JSON.parse(resp);
+                    console.log(response);
+                    if (response.status == "error") {
+    
+                        Notiflix.Report.failure(
+                            'Error',
+                            response.message,
+                            'Ok',
+                            );
+    
+                    }else if(response.status == "success"){
+                       
+                        Notiflix.Report.success(
+                            'Success',
+                            response.message,
+                            'Ok',
+                            ()=>{
+                                get_user_id();
+                                $("#edit-password").modal('hide');
+                                $("#formEditPassword").trigger('reset');
+                            }
+                            );
+    
+                    }else{
+                        Notiflix.Report.failure(
+                            'Error',
+                            'Hubo un error en el servidor. Contactate con el administrador del sistema',
+                            'Ok',
+                            );
+                    } 
+                }
+            })
+        }else{
+            Notiflix.Report.failure(
+                'Error',
+                'Las contraseñas deben de ser iguales.',
+                );
+        }
+
+        
+
+
     })
 
 }
@@ -47,12 +159,12 @@ var cargar_configuraciones = () =>{
         data:'option=get_garage&user_id=' + user_id,
         success: function(response){
             let data = JSON.parse(response);
-
+            console.log(data);
             let html = ``;
 
             data.forEach((element) => {
 
-                html += `<div class="col-md-3 mb-3"><a href="detalle?config_id=${element['mtmaca_id']}"><img src="assets/images/${element['imagen']}" width="100%" alt=""></a></div>`;
+                html += `<div class="col-md-3 mb-3"><a href="detalle?config_id=${element['mtmaca_id']}"><img src="assets/images/${element['imagen']}" width="100%" alt="" class="config-garage"></a><p class="text-center">${element['accesorio']}</p></div>`;
 
             })
 

@@ -40,7 +40,7 @@ class Users extends Conectar
 
             }else{
 
-                    $query = "INSERT INTO users(email,codigo,name,last_name,rol,password,created_at,updated_at) VALUES(?,?,?,?,2,?,now(),now())";
+                    $query = "INSERT INTO users(email,codigo,name,last_name,imagen,rol,password,created_at,updated_at) VALUES(?,?,?,?,'user.svg',2,?,now(),now())";
                     $query = $this->db->prepare($query);
 
 
@@ -80,9 +80,9 @@ class Users extends Conectar
     }
 
 
-    public function update_user($id,$user,$password,$name,$last_name,$rol,$permissions){
+    public function update_user($id,$name,$last_name,$imagen){
 
-        if(empty($user) || empty($password) || empty($name) || empty($last_name) || $rol == null){
+        if(empty($name) || empty($last_name)){
             
             $response = [
                 "status" => "error",
@@ -91,65 +91,59 @@ class Users extends Conectar
             
         }else{
 
-            $query = "SELECT * FROM users WHERE user = ?";
-            $query = $this->db->prepare($query);
-            $query->bindValue(1,$user);
-            $query->execute();
-
-            if($query->rowCount() > 0){
-
-                $query = "UPDATE users SET  password = ?, name= ?, last_name = ?, rol = ?, updated_at = now() WHERE id = ?";
+                $query = "UPDATE users SET  name= ?, last_name = ?, imagen = ?, updated_at = now() WHERE id = ?";
+                
                 $query = $this->db->prepare($query);
-                $passwordEncrypted = password_hash($password,PASSWORD_DEFAULT);
-                $query->bindValue(1,$passwordEncrypted);
-                $query->bindValue(2,$name);
-                $query->bindValue(3,$last_name);
-                $query->bindValue(4,$rol);
-                $query->bindValue(5,$id);
-                $query->execute();
 
-                $sql_delete = "DELETE FROM users_permissions WHERE iduser = ?";
-                $sql_delete = $this->db->prepare($sql_delete);
-                $sql_delete->bindValue(1,$id);
-                $sql_delete->execute();
-
-                if(!empty($permissions)){
-                    foreach($permissions as $p){
-                  
-                        $prm = "INSERT INTO users_permissions(id,iduser,idpermission) VALUES(null,?,?)";
-                        $prm = $this->db->prepare($prm);
-                        $prm->bindValue(1,$id);
-                        $prm->bindValue(2,$p);
-                        $prm->execute();
-    
-                    }
+                if (empty($_FILES['imagen']['name'])) {
+                    $imagen = $_POST['archivo'];
+                } else {
+                    $imagen = uniqid() . "-" . $_FILES["imagen"]['name'];
+                    $ruta = "../../assets/images/users/" . $imagen;
+                    move_uploaded_file($_FILES["imagen"]['tmp_name'], $ruta);
                 }
 
 
-
-
-                $response = [
-                    "status" => "success",
-                    "message" => "El usuario ha sido actualizado con exito, excepto el usuario porque ya existe."
-                ];
-
-            }else{
-                $query = "UPDATE users SET user = ?, password = ?, name= ?, last_name = ?, rol = ?, updated_at = now() WHERE id = ?";
-                $query = $this->db->prepare($query);
-                $passwordEncrypted = password_hash($password,PASSWORD_DEFAULT);
-                $query->bindValue(1,$user);
-                $query->bindValue(2,$passwordEncrypted);
-                $query->bindValue(3,$name);
-                $query->bindValue(4,$last_name);
-                $query->bindValue(5,$rol);
-                $query->bindValue(6,$id);
+                $query->bindValue(1,$name);
+                $query->bindValue(2,$last_name);
+                $query->bindValue(3,$imagen);
+                $query->bindValue(4,$id);
                 $query->execute();
 
                 $response = [
                     "status" => "success",
-                    "message" => "Usuario actualizado con exito."
+                    "message" => "El usuario ha sido actualizado con exito."
                 ];
-            }
+
+        }
+
+        echo json_encode($response);
+    }
+
+    public function reset_password($id,$password,$confirm_password){
+
+        if(empty($password) || empty($confirm_password)){
+            
+            $response = [
+                "status" => "error",
+                "message" => "Campos vacios"
+            ];
+            
+        }else{
+
+                $query = "UPDATE users SET  password = ?, updated_at = now() WHERE id = ?";
+                
+                $query = $this->db->prepare($query);
+
+                $passwordEncrypted = password_hash($password,PASSWORD_DEFAULT);
+                $query->bindValue(1,$passwordEncrypted);
+                $query->bindValue(2,$id);
+                $query->execute();
+
+                $response = [
+                    "status" => "success",
+                    "message" => "Su contraseña ha sido cambiada con exito."
+                ];
 
         }
 

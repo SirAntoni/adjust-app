@@ -10,7 +10,7 @@ class Garage extends Conectar
     }
 
     public function get_garage($user_id){
-        $sql = "SELECT * FROM garage WHERE user_id = '$user_id'";
+        $sql = "SELECT g.mtmaca_id as mtmaca_id, g.imagen as imagen, mtmaca.accesorio as accesorio FROM garage g INNER JOIN ma_ty_mo_an_cat_accesorios mtmaca ON g.mtmaca_id = mtmaca.id WHERE g.user_id = '$user_id'";
         $sql = $this->db->prepare($sql);
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_ASSOC);

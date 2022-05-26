@@ -11,7 +11,21 @@ $password = '';
 $name = '';
 $last_name = '';
 $rol = '';
+$password = '';
+$confirm_password = '';
 $option = '';
+
+if(isset($_POST['id'])){
+    $id = $_POST['id'];
+}
+
+if(isset($_POST['password'])){
+    $password = $_POST['password'];
+}
+
+if(isset($_POST['confirm_password'])){
+    $confirm_password = $_POST['confirm_password'];
+}
 
 if(isset($_POST['id'])){
     $id = $_POST['id'];
@@ -46,7 +60,15 @@ switch($option){
         $insert = $users->insert_user($email,$name,$last_name,$password);
     break;
     case 'update':
-        $update = $users->update_user($id,$name,$last_name,$foto);
+        if(empty($_FILES['imagen']['name'])){
+            $imagen = $_POST['archivo'];
+        }else{
+            $imagen= $_FILES['imagen']['name'];
+        }
+        $update = $users->update_user($_SESSION['id'],$name,$last_name,$imagen);
+    break;
+    case 'reset':
+        $reset = $users->reset_password($_SESSION['id'],$password,$confirm_password);
     break;
     case 'delete':
         $delete = $users->delete_user($id);
