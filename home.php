@@ -28,7 +28,7 @@ if(!isset($_GET['start']) && $_GET['start'] !=true){
 
     @media (max-width: 600px) {
         .opcion-home {
-            width: 250px !important;
+            width: 220px !important;
         }
     }
     </style>
