@@ -39,6 +39,10 @@ if(isset($_POST['password'])){
     $password = $_POST['password'];
 }
 
+if(isset($_POST['user'])){
+    $user = $_POST['user'];
+}
+
 if(isset($_POST['name'])){
     $name = $_POST['name'];
 }
@@ -75,6 +79,9 @@ switch($option){
     break;
     case "login":
         $login = $users->login($email,$password);
+        break;
+    case "login-admin":
+        $login_admin = $users->login_admin($user,$password);
         break;
     default:
         $listAll = json_encode($users->get_users());

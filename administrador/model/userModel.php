@@ -258,4 +258,59 @@ class Users extends Conectar
 
     }
 
+
+    public function login_admin($user, $password)
+    {
+        
+        if (empty($user) || empty($password)) {
+            $response = [
+                "status" => "error",
+                "message" => "Campos vacios."
+            ];
+            
+        } else {
+            $sql = "SELECT * FROM users_admin WHERE user = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $user);
+            if (!$sql->execute()) {
+                $response = [
+                    "status" => "error",
+                    "message" => "Error del sistema, comunicate con al Admnistrador de Sistemas."
+                ];
+            } else {
+                if ($sql->rowCount() > 0) {
+                    $data                = $sql->fetch(PDO::FETCH_ASSOC);
+                    $passwordEncrypted = $data['password'];
+
+                    if (password_verify($password, $passwordEncrypted) == true) {
+
+                        $_SESSION['id']              = $data['id'];
+                        $_SESSION['name']     = $data['name'];
+                        $_SESSION['user']     = $data['user'];
+                        
+                        $response = [
+                            "status" => "success",
+                            "url" => "main?modulo=dashboard"
+                        ];
+
+                    } else {
+                        $response = [
+                            "status" => "error",
+                            "message" => "Error en los datos ingresados."
+                        ];
+                    }
+
+                } else {
+                    $response = [
+                        "status" => "error",
+                        "message" => "Error en los datos ingresados."
+                    ];
+                }
+            }
+        }
+
+        echo json_encode($response);
+
+    }
+
 }

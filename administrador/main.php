@@ -4,25 +4,9 @@ session_start();
 if (!isset($_SESSION['user'])) {
     header('Location:login');
 }
-if(!isset($_SESSION["cart"])) $_SESSION["cart"] = [];
 
 if (!isset($_GET['module'])) {
     header('Location:main?module=dashboard');
-}else{
-    if($_GET['module'] == 'add-purchase' || $_GET['module'] == 'add-sale'){
-        unset($_SESSION["cart"]);
-        unset($_SESSION['price_delivery']);
-        $_SESSION["cart"] = [];
-    }
-
-    if($_GET['module'] == 'add-purchase'){
-        $_SESSION['module'] = 'add-purchase';
-    }elseif($_GET['module'] == 'add-sale'){
-        $_SESSION['module'] = 'add-sale';
-    }else{
-        unset($_SESSION["module"]);
-    }
-
 }
 
 require "config/conexion.php";
@@ -52,7 +36,6 @@ require "config/conexion.php";
     <link rel="stylesheet" href="assets/css/estilos/custom.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-    <script src="https://kit.fontawesome.com/7eddb11fcf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     
 </head>
@@ -86,81 +69,37 @@ require "config/conexion.php";
                         require_once "views/dashboard.php";
                         break;
 
-                    case 'cash':
-                        require_once "views/cash.php";
+                    case 'marcas':
+                        require_once "views/marcas.php";
                         break;
 
-                    case 'cash-closing':
-                        require_once "views/cash-closing.php";
+                    case 'tipos':
+                        require_once "views/tipos.php";
                         break;
 
-                    case 'income':
-                        require_once "views/income.php";
+                    case 'modelos':
+                        require_once "views/modelos.php";
                         break;
 
-                    case 'expenses':
-                        require_once "views/expenses.php";
+                    case 'anios':
+                        require_once "views/anios.php";
                         break;
 
-                    case 'categories':
-                        require_once "views/categories.php";
+                    case 'crear-auto':
+                        require_once "views/crear-auto.php";
                         break;
 
-                    case 'articles':
-                        require_once "views/articles.php";
+                    case 'asignar-categoria':
+                        require_once "views/asignar-categoria.php";
                         break;
 
-                    case 'brands':
-                        require_once "views/brands.php";
+                    case 'asignar-autoparte':
+                        require_once "views/asignar-autoparte.php";
                         break;
                     
-                    case 'add-purchase':
-                        require_once "views/add-purchase.php";
-                        break;
-
-                    case 'purchases':
-                        require_once "views/purchases.php";
-                        break;
-
-                    case 'providers':
-                        require_once "views/providers.php";
-                        break;
-
-                    case 'sales':
-                        require_once "views/sales.php";
-                        break;
-
-                    case 'add-sale':
-                        require_once "views/add-sale.php";
-                        break;
-
-                    case 'clients':
-                        require_once "views/clients.php";
-                        break;
-                    
-                    case 'users':
-                        require_once "views/users.php";
-                        break;
-
-                    case 'settings':
-                        require_once "views/settings.php";
-                        break;
-
-                    case 'vouchers':
-                        require_once "views/vouchers.php";
-                        break;
-
-                    case 'contacts':
-                        require_once "views/contacts.php";
-                        break;
-
-                    case 'payment_methods':
-                        require_once "views/payment_methods.php";
-                        break;
-
-                    case 'reports':
-                        require_once "views/reports.php";
-                        break;
+                    case 'categorias':
+                            require_once "views/categorias.php";
+                            break;
 
                     default:
                         require_once "views/dashboard.php";
@@ -196,8 +135,30 @@ require "config/conexion.php";
     <script src="assets/js/notiflix.js"></script>
     <script src="assets/js/datepicker.js"></script>
     <script src="assets/js/select2.js"></script>
-
+    <script src="assets/js/file-upload.js"></script>
     <script src="app/app.js"></script>
+
+    <?php
+    
+    switch($module) {
+        case 'crear-auto':
+            echo "<script src='app/app-crear-auto.js'></script>";
+            break;
+        case 'asignar-categoria':
+            echo "<script src='app/app-asignar-categoria.js'></script>";
+            break;
+        case 'asignar-autoparte':
+            echo "<script src='app/app-asignar-autoparte.js'></script>";
+            break;
+        case 'dashboard':
+                echo "<script src='app/app-dashboard.js'></script>";
+                break;
+        default:
+            echo "";
+            break;
+    }
+    
+    ?>
     
     <!-- end custom js for this page -->
 </body>

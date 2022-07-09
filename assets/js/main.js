@@ -23,14 +23,14 @@ const login = ()=>{
             method:'POST',
             data:data,
             beforeSend: function() {
-                Notiflix.Loading.standard('Iniciando sesión...');
+                Notiflix.Loading.Standard('Iniciando sesión...');
             },
             success: function(response){
-                Notiflix.Loading.remove();
+                Notiflix.Loading.Remove();
                 var response = JSON.parse(response);
                 if (response.status == "error") {
 
-                    Notiflix.Report.failure(
+                    Notiflix.Report.Failure(
                         'Error',
                         response.message,
                         'Ok',
@@ -42,7 +42,7 @@ const login = ()=>{
                     window.location = response.url;
 
                 }else{
-                    Notiflix.Report.failure(
+                    Notiflix.Report.Failure(
                         'Error',
                         'Hubo un error en el servidor. Contactate con el administrador del sistema',
                         'Ok',
@@ -67,15 +67,15 @@ const register = ()=> {
             method:'POST',
             data:data,
             beforeSend: function() {
-                Notiflix.Loading.standard('Registrandote...');
+                Notiflix.Loading.Standard('Registrandote...');
             },
             success: function(response){
-                console.log(response);
-                Notiflix.Loading.remove();
+                
+                Notiflix.Loading.Remove();
                 var response = JSON.parse(response);
                 if (response.status == "error") {
 
-                    Notiflix.Report.failure(
+                    Notiflix.Report.Failure(
                         'Error',
                         response.message,
                         'Ok',
@@ -83,7 +83,7 @@ const register = ()=> {
 
                 }else if(response.status == "success"){
                    
-                    Notiflix.Report.success(
+                    Notiflix.Report.Success(
                         'Success',
                         response.message,
                         'Ok',
@@ -92,7 +92,7 @@ const register = ()=> {
                     $("#form-signup").trigger('reset');
 
                 }else{
-                    Notiflix.Report.failure(
+                    Notiflix.Report.Failure(
                         'Error',
                         'Hubo un error en el servidor. Contactate con el administrador del sistema',
                         'Ok',
@@ -261,7 +261,7 @@ const get_categorias = ()=>{
                         let html = ``;
             
                         data.forEach((element) =>{
-                            html += `<div class="carousel-cell-prod"><img src="assets/images/${element['image']}" class="products" data-target="${element['id']}" width="100%" alt="" onclick="get_accesorio_detalle(${element['id']})" ></div>`;
+                            html += `<div class="carousel-cell-prod"><img src="assets/images/categorias/${element['image']}" class="products" data-target="${element['id']}" width="100%" alt="" onclick="get_accesorio_detalle(${element['id']})" ></div>`;
                         })
                         
                         $("#carousel_accesorios").html(html);
@@ -275,7 +275,7 @@ const get_categorias = ()=>{
                 })
                 
                 data.forEach((element) => {
-                    html += `<div class="carousel-cell"><img src="assets/images/${element['image']}" class="category"
+                    html += `<div class="carousel-cell"><img src="assets/images/categorias/${element['image']}" class="category"
                     data-target="" width="100%" alt="" onclick="get_accesorios(${element['id']})"></div>`;
                 })          
     
@@ -301,7 +301,7 @@ function get_accesorios (id){
             let html = ``;
             
             data.forEach((element) =>{
-                html += `<div class="carousel-cell-prod"><img src="assets/images/${element['image']}" class="products" data-target="${element['id']}" width="100%" alt="" onclick="get_accesorio_detalle(${element['id']})"></div>`;
+                html += `<div class="carousel-cell-prod"><img src="assets/images/categorias/${element['image']}" class="products" data-target="${element['id']}" width="100%" alt="" onclick="get_accesorio_detalle(${element['id']})"></div>`;
             })
             
             $("#carousel_accesorios").flickity('destroy');
@@ -379,7 +379,7 @@ var guardar_configuracion = ()=> {
         let id = 0;
         let src_config;
         if(temporal == 1){
-            Notiflix.Report.failure(
+            Notiflix.Report.Failure(
                 'Error',
                 'Debe realizar una modificación',
                 'Ok', 
@@ -393,7 +393,7 @@ var guardar_configuracion = ()=> {
                 data:"option=guardar_configuracion&id=" + id + "&src_config="+src_config,
                 method:"GET",
                 success: function(response){
-                    Notiflix.Report.success(
+                    Notiflix.Report.Success(
                         'Success',
                         'Configuración guardada',
                         'Ok', ()=>{

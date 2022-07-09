@@ -42,16 +42,16 @@ var edit_user = ()=>{
             cache: false,
             processData: false,
             beforeSend: function() {
-                Notiflix.Loading.standard('Editando usuario...');
+                Notiflix.Loading.Standard('Editando usuario...');
             },
             complete: function() {
-                Notiflix.Loading.remove();
+                Notiflix.Loading.Remove();
             },
             success: function(resp){
                 const response = JSON.parse(resp);
                 if (response.status == "error") {
 
-                    Notiflix.Report.failure(
+                    Notiflix.Report.Failure(
                         'Error',
                         response.message,
                         'Ok',
@@ -59,7 +59,7 @@ var edit_user = ()=>{
 
                 }else if(response.status == "success"){
                    
-                    Notiflix.Report.success(
+                    Notiflix.Report.Success(
                         'Success',
                         response.message,
                         'Ok',
@@ -70,7 +70,7 @@ var edit_user = ()=>{
                         );
 
                 }else{
-                    Notiflix.Report.failure(
+                    Notiflix.Report.Failure(
                         'Error',
                         'Hubo un error en el servidor. Contactate con el administrador del sistema',
                         'Ok',
@@ -98,10 +98,10 @@ var reset_password = ()=>{
                 method:"POST",
                 data: data,
                 beforeSend: function() {
-                    Notiflix.Loading.standard('Editando usuario...');
+                    Notiflix.Loading.Standard('Editando usuario...');
                 },
                 success: function(resp){
-                    Notiflix.Loading.remove();
+                    Notiflix.Loading.Remove();
                     const response = JSON.parse(resp);
                     console.log(response);
                     if (response.status == "error") {
@@ -114,7 +114,7 @@ var reset_password = ()=>{
     
                     }else if(response.status == "success"){
                        
-                        Notiflix.Report.success(
+                        Notiflix.Report.Success(
                             'Success',
                             response.message,
                             'Ok',
@@ -126,7 +126,7 @@ var reset_password = ()=>{
                             );
     
                     }else{
-                        Notiflix.Report.failure(
+                        Notiflix.Report.Failure(
                             'Error',
                             'Hubo un error en el servidor. Contactate con el administrador del sistema',
                             'Ok',
@@ -135,7 +135,7 @@ var reset_password = ()=>{
                 }
             })
         }else{
-            Notiflix.Report.failure(
+            Notiflix.Report.Failure(
                 'Error',
                 'Las contraseñas deben de ser iguales.',
                 );

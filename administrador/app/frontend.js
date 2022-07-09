@@ -7,7 +7,7 @@ var login = function() {
 
         e.preventDefault();
         var data = $(this).serialize();
-
+        console.log(data);
         $.ajax({
             method: "POST",
             url: "controller/userController.php",

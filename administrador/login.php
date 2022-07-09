@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Antony A. Culqui Carranza">
-    <title>Iniciar sesión | Sistema Interno de control de stock | <?php echo date("Y"); ?></title>
+    <title>Iniciar sesión | Administrador | <?php echo date("Y"); ?></title>
     <!-- core:css -->
     <link rel="stylesheet" href="assets/vendors/core/core.css">
     <!-- endinject -->
@@ -44,15 +44,14 @@ if (isset($_SESSION['user'])) {
                                 </div>
                                 <div class="col-md-7 pl-md-0">
                                     <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="index.php" class="text-center noble-ui-logo d-block mb-2"><img
-                                                width="100px" src="assets/images/logo.svg"></a>
+                                        <a href="index.php" class="text-center noble-ui-logo d-block mb-2">ADJUST-APP</a>
                                         <h5 class="text-muted text-center font-weight-normal mb-4">¡Bienvenido denuevo!
                                             Ingrese a su cuenta.
                                         </h5>
                                         <form id="formLogin">
-                                            <input type="hidden" name="option" value="login">
+                                            <input type="hidden" name="option" value="login-admin">
                                             <div class="form-group">
-                                                <label for="correo">usuario</label>
+                                                <label for="user">usuario</label>
                                                 <input type="text" name="user" class="form-control"
                                                     placeholder="Usuario">
                                             </div>
