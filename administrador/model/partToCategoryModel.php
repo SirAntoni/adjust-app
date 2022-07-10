@@ -39,7 +39,7 @@ class PartToCategory extends Conectar
             }
 
             $folder_name = date("Ymdhis");
-            mkdir("../../assets/images/{$folder_name}", 0700);
+            mkdir("../../assets/images/{$folder_name}", 0777);
 
             $nombre_img1 = "0.jpeg";
             $ruta1 = "../../assets/images/{$folder_name}/" . $nombre_img1;
