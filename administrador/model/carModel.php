@@ -22,7 +22,7 @@ class Cars extends Conectar
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insert_car($mark_id,$type_id,$model_id,$anio_id,$name,$imagen1,$imagen2,$imagen3,$imagen4)
+    public function insert_car($mark_id,$type_id,$model_id,$anio_id,$name,$imagen1,$imagen2,$imagen3,$imagen4,$imagen5,$imagen6,$imagen7,$imagen8,$imagen9,$imagen10,$imagen11,$imagen12)
     {
 
         if (empty($mark_id) || empty($type_id) || empty($model_id) || empty($anio_id) || empty($name)) {
@@ -52,6 +52,38 @@ class Cars extends Conectar
             $nombre_img4 = "3.jpeg";
             $ruta4 = "../../assets/images/{$folder_name}/" . $nombre_img4;
             move_uploaded_file($_FILES["imagen4"]['tmp_name'], $ruta4);
+
+            $nombre_img5 = "4.jpeg";
+            $ruta5 = "../../assets/images/{$folder_name}/" . $nombre_img5;
+            move_uploaded_file($_FILES["imagen5"]['tmp_name'], $ruta5);
+
+            $nombre_img6 = "5.jpeg";
+            $ruta6 = "../../assets/images/{$folder_name}/" . $nombre_img6;
+            move_uploaded_file($_FILES["imagen6"]['tmp_name'], $ruta6);
+
+            $nombre_img7 = "6.jpeg";
+            $ruta7 = "../../assets/images/{$folder_name}/" . $nombre_img7;
+            move_uploaded_file($_FILES["imagen7"]['tmp_name'], $ruta7);
+
+            $nombre_img8 = "7.jpeg";
+            $ruta8 = "../../assets/images/{$folder_name}/" . $nombre_img8;
+            move_uploaded_file($_FILES["imagen8"]['tmp_name'], $ruta8);
+
+            $nombre_img9 = "8.jpeg";
+            $ruta9 = "../../assets/images/{$folder_name}/" . $nombre_img9;
+            move_uploaded_file($_FILES["imagen9"]['tmp_name'], $ruta9);
+
+            $nombre_img10 = "9.jpeg";
+            $ruta10 = "../../assets/images/{$folder_name}/" . $nombre_img10;
+            move_uploaded_file($_FILES["imagen10"]['tmp_name'], $ruta10);
+
+            $nombre_img11 = "10.jpeg";
+            $ruta11 = "../../assets/images/{$folder_name}/" . $nombre_img11;
+            move_uploaded_file($_FILES["imagen11"]['tmp_name'], $ruta11);
+
+            $nombre_img12 = "11.jpeg";
+            $ruta12 = "../../assets/images/{$folder_name}/" . $nombre_img12;
+            move_uploaded_file($_FILES["imagen12"]['tmp_name'], $ruta12);
 
             $sql->bindValue(1, $mark_id);
             $sql->bindValue(2, $type_id);

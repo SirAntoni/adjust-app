@@ -106,7 +106,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Preview (Recomendado 600px x 600px)</label>
+                                <label>Preview (Recomendado 960px × 640px)</label>
                                 <input type="file" name="preview" class="file-upload-default">
                                 <div class="input-group col-xs-12">
                                     <input type="text" class="form-control file-upload-info" disabled=""
@@ -119,7 +119,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Imagen1 (Recomendado 600px x 600px)</label>
+                                <label>Imagen1 (Recomendado 960px × 640px)</label>
                                 <input type="file" name="imagen1" class="file-upload-default">
                                 <div class="input-group col-xs-12">
                                     <input type="text" class="form-control file-upload-info" disabled=""
@@ -132,7 +132,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Imagen2 (Recomendado 600px x 600px)</label>
+                                <label>Imagen2 (Recomendado 960px × 640px)</label>
                                 <input type="file" name="imagen2" class="file-upload-default">
                                 <div class="input-group col-xs-12">
                                     <input type="text" class="form-control file-upload-info" disabled=""
@@ -145,7 +145,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Imagen3 (Recomendado 600px x 600px)</label>
+                                <label>Imagen3 (Recomendado 960px × 640px)</label>
                                 <input type="file" name="imagen3" class="file-upload-default">
                                 <div class="input-group col-xs-12">
                                     <input type="text" class="form-control file-upload-info" disabled=""
@@ -158,8 +158,115 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Imagen4 (Recomendado 600px x 600px)</label>
+                                <label>Imagen4 (Recomendado 960px × 640px)</label>
                                 <input type="file" name="imagen4" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 5 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen5" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen6 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen6" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 7 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen7" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 8 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen8" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 9 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen9" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 10 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen10" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 11 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen11" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Subir Imagen">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Cargar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen 12 (Recomendado 960px × 640px)</label>
+                                <input type="file" name="imagen12" class="file-upload-default">
                                 <div class="input-group col-xs-12">
                                     <input type="text" class="form-control file-upload-info" disabled=""
                                         placeholder="Subir Imagen">

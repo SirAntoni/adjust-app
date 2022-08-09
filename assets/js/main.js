@@ -355,8 +355,8 @@ function get_accesorio_detalle(id){
 
 
             $('.product').TreeSixtyImageRotate({
-                totalFrames: 3,
-                endFrame: 3,
+                totalFrames: 11,
+                endFrame: 11,
                 currentFrame: 0,
                 extension: ".jpeg",
                 imagesFolder: "assets/images/" + data['src'] + "/",

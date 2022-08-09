@@ -82,14 +82,14 @@ session_start();
 
 <body>
 
-    <?php if(isset($_GET['id'])){ ?>
+    <?php if (isset($_GET['id'])) {?>
     <input type="hidden" id="tipo_config" name="tipo_config" value="1">
-    <?php $id = $_GET['id'];   } ?>
-    <?php if(isset($_GET['config_id'])){ ?>
+    <?php $id = $_GET['id'];}?>
+    <?php if (isset($_GET['config_id'])) {?>
     <input type="hidden" id="tipo_config" name="tipo_config" value="2">
 
 
-    <?php $id = $_GET['config_id']; } ?>
+    <?php $id = $_GET['config_id'];}?>
 
     <input type="hidden" id="config_temporal" name="config_temporal" value="1">
     <input type="hidden" id="auto_id" name="auto_id" value="<?php echo $id; ?>">
@@ -146,17 +146,17 @@ session_start();
                 </div>
             </div>
 
-            <?php if(isset($_SESSION['email'])){ ?>
+            <?php if (isset($_SESSION['email'])) {?>
             <div class="col-md-12 text-center py-4">
                 <button id="guardar_configuracion" class="btn btn-success">Guardar configuración</button>
                 <a href="index" class="btn btn-danger">volver</a>
             </div>
 
-            <?php }else{?>
+            <?php } else {?>
             <div class="col-md-12 text-center py-4">
                 <a href="index" class="btn btn-danger">volver</a>
             </div>
-            <?php  } ?>
+            <?php }?>
 
         </div>
 
@@ -193,8 +193,8 @@ session_start();
                     const data = JSON.parse(response);
                     $("#titulo").html(data['name_config']);
                     $('.product').TreeSixtyImageRotate({
-                        totalFrames: 3,
-                        endFrame: 3,
+                        totalFrames: 11,
+                        endFrame: 11,
                         currentFrame: 0,
                         extension: ".jpeg",
                         imagesFolder: "assets/images/" + data['src_config'] + "/",
